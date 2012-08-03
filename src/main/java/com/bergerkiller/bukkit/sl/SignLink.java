@@ -29,7 +29,6 @@ public class SignLink extends PluginBase {
 	
 	public static boolean updateSigns = false;
 	public static boolean allowSignEdit = true;
-	public static boolean usePermissions = false;
 
 	private SimpleDateFormat dateFormat;
 	private SimpleDateFormat timeFormat;
@@ -88,7 +87,6 @@ public class SignLink extends PluginBase {
 		config.load();
 		String timeFormat = config.get("timeFormat", "H:mm:ss");
 		String dateFormat = config.get("dateFormat", "yyyy.MM.dd");
-		usePermissions = config.get("usePermissions", false);
 		allowSignEdit = config.get("allowSignEdit", true);
 		try {
 			this.timeFormat = new SimpleDateFormat(timeFormat);
@@ -173,7 +171,6 @@ public class SignLink extends PluginBase {
 		for (Player p : getServer().getOnlinePlayers()) {
 			updatePlayerName(p);
 		}
-		Permission.init(this);
 	}
 	
 	private Task updatetask;
@@ -211,7 +208,6 @@ public class SignLink extends PluginBase {
 		
 		Variables.deinit();
 		VirtualSign.deinit();
-		Permission.deinit();
 		log(Level.INFO, " is disabled!");
 	}
 	

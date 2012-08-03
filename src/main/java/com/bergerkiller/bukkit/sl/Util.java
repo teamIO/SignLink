@@ -2,6 +2,8 @@ package com.bergerkiller.bukkit.sl;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
@@ -18,7 +20,7 @@ public class Util {
 				if (next == '0' || next == '1' || next == '2' || next == '3' || next == '4' ||
 						next == '5' || next == '6' || next == '7' || next == '8' || next == '9' ||
 						next == 'a' || next == 'b' || next == 'c' || next == 'd' || next == 'e' || next == 'f') {
-					line = line.substring(0, index) + '§' + line.substring(index + 1);
+					line = line.substring(0, index) + 'ï¿½' + line.substring(index + 1);
 				}
 				index++;
 			} else {
@@ -93,6 +95,9 @@ public class Util {
 	}
 	public static String now(SimpleDateFormat format) {
 		return format.format(Calendar.getInstance().getTime()).trim();
+	}
+	public static void log(Level info, String string) {
+		Logger.getLogger("Minecraft").log(info, string);
 	}
 	    	
 }
